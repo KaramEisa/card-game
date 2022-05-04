@@ -1,4 +1,6 @@
 /** Imports  */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;500;600&display=swap');
+
 
 /** Reset All  */
 * {
@@ -7,16 +9,93 @@
     box-sizing: border-box;
 }
 
-/** Utilities  */
+/***********************************************/
 body {
+    height: 100vh;
     display: flex;
-    flex-direction: row;
+    background-image: radial-gradient(blue, rgb(8, 156, 182));
 }
 
-/*? container */
-#container {
-    background-color: red;
-    background-image: linear-gradient(to right ,blue, rgb(8, 156, 182));
-    height: 100vh;
+/***********************************************/
+.container {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    background-color: #1c7ccc;
+    border-radius: 5px;
+}
+
+.title {
+    font-family: 'Poppins';
+    color: white;
+}
+/* Game */
+.memory-game {
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.memory-card {
+    width: calc(25% - 10px);
+    height: calc(33.333% - 10px);
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: .5s;
+}
+
+.memory-card:active {
+    transform: scale(.97);
+    transition: transform .3s;
+}
+img {
+    width: 100px;
+}
+
+.front-face,
+.back-face{
     width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: #1c7ccc;
+    backface-visibility: hidden;
+}
+
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+
+/* Bottom Section */
+.score-panel {
+    display: flex;
+    margin:3rem 0 0 0 ;
+    padding: .7rem;
+    border-radius: 5px;
+    background-color: #1c7ccc;
+}
+
+.timerDiv {
+    margin-left: 10rem;
+}
+
+.mistake {
+    margin-left: 5rem;
 }
